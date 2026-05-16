@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Playfair_Display, Cormorant_Garamond, Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 

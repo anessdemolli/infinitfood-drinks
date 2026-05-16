@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -109,19 +109,19 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
         >
           <button onClick={() => scrollTo('#menu')}
-            className="btn-gold w-full sm:w-auto cursor-none flex items-center justify-center gap-2">
+            className="btn-gold w-full sm:w-auto flex items-center justify-center gap-2">
             <IconMenu />
             <span>View Menu</span>
           </button>
 
           <button onClick={() => scrollTo('#reserve')}
-            className="btn-outline-gold w-full sm:w-auto cursor-none flex items-center justify-center gap-2">
+            className="btn-outline-gold w-full sm:w-auto flex items-center justify-center gap-2">
             <IconReserve />
             Reserve a Table
           </button>
 
           <a href="https://wolt.com" target="_blank" rel="noopener noreferrer"
-            className="btn-wolt w-full sm:w-auto cursor-none">
+            className="btn-wolt w-full sm:w-auto">
             <IconWolt />
             Order on Wolt
           </a>

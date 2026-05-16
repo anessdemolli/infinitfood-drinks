@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -26,7 +26,7 @@ export default function FloatingReserve() {
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
           transition={{ duration: 0.4 }}
           onClick={scrollTo}
-          className="float-reserve btn-gold cursor-none shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+          className="float-reserve btn-gold shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
         >
           <span>Reserve →</span>
         </motion.button>

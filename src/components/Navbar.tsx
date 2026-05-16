@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -73,7 +73,7 @@ export default function Navbar() {
           {/* Desktop CTA */}
           <button
             onClick={() => scrollTo('#reserve')}
-            className="hidden lg:block btn-gold cursor-none text-[9px] tracking-[0.2em] px-7 py-3"
+            className="hidden lg:block btn-gold text-[9px] tracking-[0.2em] px-7 py-3"
           >
             <span>Reserve a Table</span>
           </button>
@@ -81,7 +81,7 @@ export default function Navbar() {
           {/* Mobile burger — premium design */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden cursor-none relative w-10 h-10 flex items-center justify-center"
+            className="lg:hidden relative w-10 h-10 flex items-center justify-center"
             aria-label="Toggle menu"
           >
             <div className="w-6 flex flex-col gap-[5px]">
@@ -170,7 +170,7 @@ export default function Navbar() {
                 >
                   <button
                     onClick={() => scrollTo('#reserve')}
-                    className="btn-gold cursor-none w-full text-center py-4"
+                    className="btn-gold w-full text-center py-4"
                   >
                     <span>Reserve a Table</span>
                   </button>

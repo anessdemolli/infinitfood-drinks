@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
@@ -11,8 +11,7 @@ import MapSection from '@/components/MapSection';
 import Reserve from '@/components/Reserve';
 import Reviews from '@/components/Reviews';
 import Footer from '@/components/Footer';
-import CustomCursor from '@/components/CustomCursor';
-import FloatingReserve from '@/components/FloatingReserve';
+
 
 export default function Home() {
   useEffect(() => {
@@ -26,8 +25,6 @@ export default function Home() {
 
   return (
     <>
-      <CustomCursor />
-      <FloatingReserve />
       <Navbar />
       <main>
         <Hero />

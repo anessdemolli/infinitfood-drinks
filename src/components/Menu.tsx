@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
@@ -83,7 +83,7 @@ function MenuCard({ item, index, inView }: { item: typeof showcaseItems[0]; inde
       initial={{ opacity: 0, y: 24 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: index * 0.07, duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="group heritage-card flex flex-col overflow-hidden cursor-none"
+      className="group heritage-card flex flex-col overflow-hidden"
     >
       {/* Image */}
       <div className="relative h-48 sm:h-52 overflow-hidden shrink-0">
@@ -209,7 +209,7 @@ export default function Menu() {
           <p className="font-cormorant text-base sm:text-lg italic text-[var(--champagne)]/35">
             Full menu available in-restaurant and on Wolt
           </p>
-          <a href="https://wolt.com" target="_blank" rel="noopener noreferrer" className="btn-wolt cursor-none">
+          <a href="https://wolt.com" target="_blank" rel="noopener noreferrer" className="btn-wolt">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
               <path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zm-1 1.5 1.5 2H17V9.5h2zM6 18c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm13.5-9H17v2.5h4L19.5 9zM18 18c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/>
             </svg>

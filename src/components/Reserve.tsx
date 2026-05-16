@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
@@ -143,7 +143,7 @@ export default function Reserve() {
                 <p className="font-cormorant text-lg italic text-[var(--champagne)]/65 mb-8 max-w-sm">
                   We have received your reservation and will confirm via email shortly. We look forward to welcoming you.
                 </p>
-                <button onClick={reset} className="btn-outline-gold cursor-none">
+                <button onClick={reset} className="btn-outline-gold">
                   Make Another Reservation
                 </button>
               </motion.div>
@@ -260,7 +260,7 @@ export default function Reserve() {
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
                   <p className="font-inter text-xs text-[var(--champagne)]/30 max-w-xs leading-relaxed">
                     Or call us directly at{' '}
-                    <a href="tel:+38344528149" className="text-[var(--gold)]/60 hover:text-[var(--gold)] transition-colors cursor-none">
+                    <a href="tel:+38344528149" className="text-[var(--gold)]/60 hover:text-[var(--gold)] transition-colors">
                       +383 44 528 149
                     </a>
                   </p>
@@ -268,7 +268,7 @@ export default function Reserve() {
                   <button
                     type="submit"
                     disabled={status === 'sending'}
-                    className="btn-gold cursor-none w-full sm:w-auto flex items-center justify-center gap-3 disabled:opacity-60"
+                    className="btn-gold w-full sm:w-auto flex items-center justify-center gap-3 disabled:opacity-60"
                   >
                     {status === 'sending' ? (
                       <>

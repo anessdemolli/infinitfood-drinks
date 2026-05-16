@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
@@ -132,7 +132,7 @@ export default function Reviews() {
                 initial={{ opacity: 0 }}
                 animate={inView ? { opacity: 1 } : {}}
                 transition={{ delay: 0.65 + i * 0.04 }}
-                className="relative aspect-square overflow-hidden group cursor-none"
+                className="relative aspect-square overflow-hidden group"
               >
                 <Image
                   src={src} alt="Infinit gallery" fill

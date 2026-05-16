@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
@@ -92,7 +92,7 @@ export default function Events() {
               initial={{ opacity: 0, y: 32 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.15 + i * 0.12, duration: 0.8 }}
-              className="group relative cursor-none overflow-hidden border border-[var(--gold)]/14 hover:border-[var(--gold)]/45 transition-all duration-600"
+              className="group relative overflow-hidden border border-[var(--gold)]/14 hover:border-[var(--gold)]/45 transition-all duration-600"
             >
               {/* Image — stepped back / zoomed out */}
               <div className="relative overflow-hidden" style={{ height: 'clamp(260px, 32vw, 420px)' }}>
@@ -165,7 +165,7 @@ export default function Events() {
             <p className="font-cormorant text-xl sm:text-2xl text-[var(--ivory)]">Planning something special?</p>
           </div>
           <a href="tel:+38344528149"
-            className="btn-gold cursor-none shrink-0 w-full sm:w-auto text-center flex items-center justify-center gap-2">
+            className="btn-gold shrink-0 w-full sm:w-auto text-center flex items-center justify-center gap-2">
             <IconPhone />
             <span>Call +383 44 528 149</span>
           </a>
