@@ -1,26 +1,238 @@
 @import "tailwindcss";
 
+/* ── CSS variables ─────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --green-deep:     #0A2E1F;
+  --green-heritage: #0F3B2E;
+  --green-forest:   #1A4A38;
+  --gold:           #C9A96E;
+  --gold-light:     #D4B483;
+  --gold-pale:      #E8D5B0;
+  --champagne:      #F5EDDC;
+  --ivory:          #FAF6F0;
+  --matte-black:    #0A0A0A;
+  --wolt-blue:      #009DE0;
+  --wolt-blue-soft: rgba(0, 157, 224, 0.12);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ── Font families (CSS vars injected by next/font) ─ */
+.font-playfair   { font-family: var(--font-playfair), Georgia, serif; }
+.font-cormorant  { font-family: var(--font-cormorant), Georgia, serif; }
+.font-inter      { font-family: var(--font-inter), system-ui, sans-serif; }
+.font-montserrat { font-family: var(--font-montserrat), system-ui, sans-serif; }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* ── Reset ─────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--green-deep);
+  color: var(--ivory);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ── Scrollbar ──────────────────────────────────── */
+::-webkit-scrollbar       { width: 3px; }
+::-webkit-scrollbar-track { background: var(--green-deep); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+/* ── Custom cursor ──────────────────────────────── */
+.cursor-dot {
+  width: 7px; height: 7px;
+  background: var(--gold);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+.cursor-ring {
+  width: 34px; height: 34px;
+  border: 1.5px solid var(--gold);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width .18s, height .18s, background .18s, border-color .18s;
+}
+.cursor-ring.hovering {
+  width: 56px; height: 56px;
+  border-color: var(--gold-light);
+  background: rgba(201,169,110,.07);
+}
+
+/* ── Gold gradient text ─────────────────────────── */
+.text-gold-gradient {
+  background: linear-gradient(135deg, var(--gold-pale) 0%, var(--gold) 50%, var(--gold-pale) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glassmorphism ──────────────────────────────── */
+.glass-dark {
+  background: rgba(10,46,31,.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(201,169,110,.12);
+}
+.glass-gold {
+  background: rgba(201,169,110,.07);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(201,169,110,.18);
+}
+
+/* ── Heritage card ──────────────────────────────── */
+.heritage-card {
+  background: linear-gradient(135deg,rgba(15,59,46,.92) 0%,rgba(10,46,31,.97) 100%);
+  border: 1px solid rgba(201,169,110,.14);
+  transition: border-color .45s ease, transform .45s ease, box-shadow .45s ease;
+}
+.heritage-card:hover {
+  border-color: rgba(201,169,110,.45);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 50px rgba(0,0,0,.35), 0 0 0 1px rgba(201,169,110,.12);
+}
+
+/* ── Buttons ────────────────────────────────────── */
+.btn-gold {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: var(--green-deep);
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-weight: 600;
+  font-size: .72rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  padding: 14px 36px;
+  border: none;
+  cursor: none;
+  position: relative;
+  overflow: hidden;
+  transition: opacity .35s ease, transform .35s ease;
+}
+.btn-gold:hover { opacity: .9; transform: translateY(-1px); }
+
+.btn-outline-gold {
+  display: inline-block;
+  background: transparent;
+  color: var(--gold);
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: .72rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  padding: 13px 35px;
+  border: 1px solid rgba(201,169,110,.45);
+  cursor: none;
+  transition: background .35s ease, border-color .35s ease, transform .35s ease;
+}
+.btn-outline-gold:hover {
+  background: rgba(201,169,110,.08);
+  border-color: var(--gold);
+  transform: translateY(-1px);
+}
+
+/* ── Wolt button ────────────────────────────────── */
+.btn-wolt {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, rgba(0,157,224,.18) 0%, rgba(0,157,224,.10) 100%);
+  color: #5dd0f7;
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: .72rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  padding: 13px 28px;
+  border: 1px solid rgba(0,157,224,.35);
+  cursor: none;
+  transition: background .35s ease, border-color .35s ease, transform .35s ease, color .35s ease;
+  backdrop-filter: blur(8px);
+}
+.btn-wolt:hover {
+  background: linear-gradient(135deg, rgba(0,157,224,.28) 0%, rgba(0,157,224,.16) 100%);
+  border-color: rgba(0,157,224,.65);
+  color: #9ae8ff;
+  transform: translateY(-1px);
+}
+
+/* ── Gold dividers ──────────────────────────────── */
+.gold-divider {
+  width: 60px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto;
+}
+.line-gold-h {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.line-gold-v {
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--gold), transparent);
+}
+
+/* ── Floating reserve ───────────────────────────── */
+.float-reserve {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  z-index: 100;
+  animation: pulse-gold 3s ease-in-out infinite;
+}
+@keyframes pulse-gold {
+  0%,100% { box-shadow: 0 0 0 0 rgba(201,169,110,.35); }
+  50%      { box-shadow: 0 0 0 10px rgba(201,169,110,0); }
+}
+
+/* ── Hero Ken Burns ─────────────────────────────── */
+@keyframes kenBurns {
+  0%   { transform: scale(1.0); }
+  50%  { transform: scale(1.08); }
+  100% { transform: scale(1.0); }
+}
+.hero-zoom {
+  position: absolute; inset: 0;
+  animation: kenBurns 18s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* ── Scrollbar hide util ────────────────────────── */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Form inputs dark styling ───────────────────── */
+input[type="date"],
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  color-scheme: dark;
+  background-color: transparent;
+}
+select option {
+  background: var(--green-deep);
+  color: var(--ivory);
+}
+input::placeholder { color: rgba(245,237,220,.22); }
+textarea::placeholder { color: rgba(245,237,220,.22); }
+
+/* ── Overflow guard ─────────────────────────────── */
+section, main, footer, nav { max-width: 100vw; overflow-x: hidden; }
+
+/* ── Mobile ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  body         { cursor: auto; }
+  .cursor-dot,
+  .cursor-ring { display: none; }
+  .btn-gold,
+  .btn-outline-gold { padding: 12px 24px; font-size: .68rem; }
+  .float-reserve    { bottom: 20px; right: 14px; }
+}
+
+@supports (padding: env(safe-area-inset-bottom)) {
+  .float-reserve { bottom: calc(28px + env(safe-area-inset-bottom)); }
 }
